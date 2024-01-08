@@ -9,11 +9,13 @@ const Home = async () => {
 
   return (
     <>
-      <div>Training Sessions</div>
+      <div className="p-4 text-xl">Training Sessions</div>
 
-      {trainingSessions.map(session => (
-        <TrainingSessionListItem key={session.id} trainingSession={session} />
-      ))}
+      <div className="border-t">
+        {trainingSessions.map(session => (
+          <TrainingSessionListItem key={session.id} trainingSession={session} />
+        ))}
+      </div>
 
       <ButtonWrapper />
     </>
