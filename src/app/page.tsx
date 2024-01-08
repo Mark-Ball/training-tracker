@@ -1,5 +1,17 @@
-export default function Home() {
+import prisma from '@db/prismaSingleton'
+
+import ButtonWrapper from './buttonWrapper'
+
+const Home = async () => {
+  const trainingSessions = await prisma.trainingSession.findMany()
+
   return (
-    <div>Your app here</div>
+    <>
+      <div>Training Sessions</div>
+
+      <ButtonWrapper />
+    </>
   )
 }
+
+export default Home
