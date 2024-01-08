@@ -1,6 +1,6 @@
 import prisma from '@db/prismaSingleton'
 
-import TrainingSessionListItem from '@components/TrainingSessionListItem'
+import TrainingMonth from '@components/TrainingMonth'
 
 import ButtonWrapper from './buttonWrapper'
 
@@ -11,13 +11,13 @@ const Home = async () => {
     <>
       <div className="p-4 text-xl">Training Sessions</div>
 
-      <div className="border-t">
-        {trainingSessions.map(session => (
-          <TrainingSessionListItem key={session.id} trainingSession={session} />
-        ))}
-      </div>
+      <TrainingMonth month="Jan" />
+
+      <TrainingMonth month="Feb" />
 
       <ButtonWrapper />
+
+      <div className="p-4 text-lg">Total sessions: {trainingSessions.length}</div>
     </>
   )
 }
