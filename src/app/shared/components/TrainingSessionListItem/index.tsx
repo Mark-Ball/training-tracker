@@ -13,8 +13,9 @@ const TrainingSessionListItem = (props: TrainingSessionListItemProps) => {
   } = props
 
   return (
-    <div className="border-b p-2 flex">
-      # {id}
+    <div className="border-t p-2 flex items-center">
+      <div className="w-10"># {id}</div>
+
       <div className="ml-8">{`${createdAt}`}</div>
     </div>
   )

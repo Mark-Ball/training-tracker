@@ -1,9 +1,9 @@
 import prisma from '@db/prismaSingleton'
 
-import TrainingSessionListItem from '@components/TrainingSessionListItem'
-
 import { constructQueryForMonth } from '@functions/dates'
 import type { Month } from '@functions/dates'
+
+import CollapsibleList from './CollapsibleList'
 
 interface TrainingMonthProps {
   month: Month,
@@ -18,20 +18,7 @@ const TrainingMonth = async (props: TrainingMonthProps) => {
     },
   })
 
-  return (
-    <>
-      <div className="border p-4 flex justify-between align-center">
-        <div className="text-lg">{month}</div>
-
-        <div>Sessions: {trainingSessions.length}</div>
-      </div>
-
-      {trainingSessions.map(session => (
-        <TrainingSessionListItem key={session.id} trainingSession={session} />
-      ))}
-    </>
-  )
-
+  return <CollapsibleList month={month} trainingSessions={trainingSessions} />
 }
 
 export default TrainingMonth
