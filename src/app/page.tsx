@@ -1,8 +1,12 @@
 import prisma from '@db/prismaSingleton'
 
+import type { Month } from '@functions/dates'
+
 import TrainingMonth from '@components/TrainingMonth'
 
 import ButtonWrapper from './buttonWrapper'
+
+const months: Month[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 const Home = async () => {
   const trainingSessions = await prisma.trainingSession.findMany()
@@ -11,9 +15,7 @@ const Home = async () => {
     <>
       <div className="p-4 text-xl">Training Sessions</div>
 
-      <TrainingMonth month="Jan" />
-
-      <TrainingMonth month="Feb" />
+      {months.map(month => <TrainingMonth month={month} />)}
 
       <ButtonWrapper />
 
