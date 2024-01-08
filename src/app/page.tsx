@@ -1,3 +1,5 @@
+import clsx from 'clsx'
+
 import prisma from '@db/prismaSingleton'
 
 import type { Month } from '@functions/dates'
@@ -30,7 +32,14 @@ const Home = async () => {
 
         <div className="text-lg">Goal: {goalSessions}</div>
 
-        <div>On track</div>
+        <div className="flex items-center">
+          <div>On track</div>
+
+          <div className={clsx(
+            "border border-black h-5 w-5 ml-4 rounded-full",
+            isOnTrack ? "bg-green-500" : "bg-red-600",
+          )} />
+        </div>
       </div>
     </>
   )
