@@ -15,7 +15,9 @@ const Home = async () => {
     <>
       <div className="p-4 text-xl">Training Sessions</div>
 
-      {months.map(month => <TrainingMonth month={month} />)}
+      {months.map((month, index) => (
+        <TrainingMonth isLast={index === 11} month={month} />
+      ))}
 
       <ButtonWrapper />
 
